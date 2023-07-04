@@ -569,23 +569,23 @@ void Entity::saveToFile(string FileName) {
 }
 
 void Entity::LoadFromFile(string FileName, sf::Texture& tileset, sf::Color& backgroundColor, Player& Mario, Player& Luigi, Entity& EntityList) {
-	coinCollectedBuffer.loadFromFile("assets/audio/coin.wav");
+	coinCollectedBuffer.loadFromFile("../assets/audio/coin.wav");
 	coinCollected.setBuffer(coinCollectedBuffer);
-	mushCollectedBuffer.loadFromFile("assets/audio/mushroom.wav");
+	mushCollectedBuffer.loadFromFile("../assets/audio/mushroom.wav");
 	mushCollected.setBuffer(mushCollectedBuffer);
 
-	powerUpAppearsBuffer.loadFromFile("assets/audio/powerUpAppear.wav");
+	powerUpAppearsBuffer.loadFromFile("../assets/audio/powerUpAppear.wav");
 	powerUpAppearsSound.setBuffer(powerUpAppearsBuffer);
-	gumbaDeadBuffer.loadFromFile("assets/audio/goomba.wav");
+	gumbaDeadBuffer.loadFromFile("../assets/audio/goomba.wav");
 	gumbaDeadSound.setBuffer(gumbaDeadBuffer);
-	enterPipeBuffer.loadFromFile("assets/audio/pipe.wav");
+	enterPipeBuffer.loadFromFile("../assets/audio/pipe.wav");
 	enterPipeSound.setBuffer(enterPipeBuffer);
-	oneUPBuffer.loadFromFile("assets/audio/");
+	oneUPBuffer.loadFromFile("../assets/audio/");
 	oneUPSound.setBuffer(oneUPBuffer);
-	breakBlockBuffer.loadFromFile("assets/audio/block.wav");
+	breakBlockBuffer.loadFromFile("../assets/audio/block.wav");
 	breakBlockSound.setBuffer(breakBlockBuffer);
 
-	EnemySpritesheet.loadFromFile("assets/enemies_sprites.png");
+	EnemySpritesheet.loadFromFile("../assets/enemies_sprites.png");
 	Tileset = &tileset;
 
 	BGColor = sf::Color(93, 148, 251);

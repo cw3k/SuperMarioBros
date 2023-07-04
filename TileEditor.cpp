@@ -176,7 +176,7 @@ void TileEditor::showIcon(sf::RenderWindow& window, sf::Sprite& icon, string& Cu
 	icon.move(0, 42);
 	icon.setScale(0.25, 0.25);
 	sf::Texture CastleIcon;
-	CastleIcon.loadFromFile("assets/castle.png");
+	CastleIcon.loadFromFile("../assets/castle.png");
 	icon.setTexture(CastleIcon);
 	icon.setTextureRect(sf::IntRect(0, 0, 160, 160));
 	if (icon.getGlobalBounds().intersects(sf::FloatRect(mousePos.x, mousePos.y, 1, 1))) {
@@ -209,7 +209,7 @@ string TileEditor::Logic(string Mapname) {
 
 	sf::Sprite Preview;
 	sf::Texture TileSet;
-	TileSet.loadFromFile("assets/tileset.png");
+	TileSet.loadFromFile("../assets/tileset.png");
 	Preview.setTexture(TileSet);
 	Preview.setScale(sf::Vector2f(0.5, 0.5));
 	Preview.setColor(sf::Color(255, 255, 255, 150));
@@ -222,7 +222,7 @@ string TileEditor::Logic(string Mapname) {
 	sf::IntRect tileRect(0, 0, 32, 32);
 	Preview.setTextureRect(tileRect);
 
-	Player Mario(window, "assets/mario.png", 0);
+	Player Mario(window, "../assets/mario.png", 0);
 	Mario.MoveLockState = true;
 
 	vector<sf::Sprite> Players;
@@ -237,14 +237,14 @@ string TileEditor::Logic(string Mapname) {
 	sf::Text pipeDirText;
 	sf::Font pipDirTextFont;
 	//pipeDirText.setScale(0.5, 0.5);
-	pipDirTextFont.loadFromFile("assets/font.ttf");
+	pipDirTextFont.loadFromFile("../assets/font.ttf");
 	pipeDirText.setFont(pipDirTextFont);
 
 	bool RenamingWorld = false;
 	Entity EntityList;
 	EntityList.debugMode = true;
 	sf::Color backgroundColor(93, 148, 251);
-	EntityList.LoadFromFile("worlds/"+MapName, TileSet, backgroundColor, Mario, Mario, EntityList);
+	EntityList.LoadFromFile("../worlds/"+MapName, TileSet, backgroundColor, Mario, Mario, EntityList);
 	bool RenameOnce = true;
 	sf::Text WorldNameText;
 	WorldNameText.setFont(pipDirTextFont);
@@ -258,7 +258,7 @@ string TileEditor::Logic(string Mapname) {
 
 	sf::Sprite icon;
 	sf::Texture MarioSpriteSheet;
-	MarioSpriteSheet.loadFromFile("assets/mario.png");
+	MarioSpriteSheet.loadFromFile("../assets/mario.png");
 	icon.setTexture(TileSet);
 
 
@@ -339,7 +339,7 @@ string TileEditor::Logic(string Mapname) {
 							MapName += "-";
 						}
 						if  (ev.key.code == 58){
-							EntityList.LoadFromFile("worlds/"+MapName+".wd", TileSet, backgroundColor, Mario, Mario, EntityList);
+							EntityList.LoadFromFile("../worlds/"+MapName+".wd", TileSet, backgroundColor, Mario, Mario, EntityList);
 							RenamingWorld = false;
 						}
 						//}
@@ -633,7 +633,7 @@ string TileEditor::Logic(string Mapname) {
 			}
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-				EntityList.saveToFile("worlds/" + MapName);
+				EntityList.saveToFile("../worlds/" + MapName);
 			}
 		}
 

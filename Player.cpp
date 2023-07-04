@@ -23,9 +23,9 @@ Player::Player(sf::RenderWindow& window, string SpriteSheet, int num) {
 
 	playerNum = num;
 
-	jumpBuffer.loadFromFile("assets/audio/jump.wav");
+	jumpBuffer.loadFromFile("../assets/audio/jump.wav");
 	jumpSound.setBuffer(jumpBuffer);
-	deathBuffer.loadFromFile("assets/audio/death.wav");
+	deathBuffer.loadFromFile("../assets/audio/death.wav");
 	DeathSound.setBuffer(deathBuffer);
 }
 

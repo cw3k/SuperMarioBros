@@ -9,12 +9,12 @@
 using namespace std;
 
 void Level(sf::RenderWindow& window, sf::Texture& Tileset, string& MapName, int Mode, int& Lives) {
-	Player Mario(window, "assets/mario.png", 0);
-	Player Luigi(window, "assets/luigi.png", 1);
+	Player Mario(window, "../assets/mario.png", 0);
+	Player Luigi(window, "../assets/luigi.png", 1);
 
 	sf::Color backgroundColor(93, 148, 251);
 	Entity EntityList;
-	EntityList.LoadFromFile("worlds/" + MapName + ".wd" , Tileset, backgroundColor, Mario, Luigi, EntityList);
+	EntityList.LoadFromFile("../worlds/" + MapName + ".wd" , Tileset, backgroundColor, Mario, Luigi, EntityList);
 
 
 	if (Mode == 2) {
@@ -27,12 +27,12 @@ void Level(sf::RenderWindow& window, sf::Texture& Tileset, string& MapName, int 
 	sf::Clock fpsClock;
 
 	sf::Music music;
-	music.openFromFile("assets/audio/" + MapName + ".wav");
+	music.openFromFile("../assets/audio/" + MapName + ".wav");
 	music.setLoop(true);
 	music.play();
 
 	sf::Font Font;
-	Font.loadFromFile("assets/font.ttf");
+	Font.loadFromFile("../assets/font.ttf");
 	sf::Text text;
 	text.setFont(Font);
 
@@ -43,7 +43,7 @@ void Level(sf::RenderWindow& window, sf::Texture& Tileset, string& MapName, int 
 	sf::Sprite coinDisplay;
 	sf::Texture coinDisplayT;
 	sf::Text coinDisplayText;
-	coinDisplayT.loadFromFile("assets/menu.png");
+	coinDisplayT.loadFromFile("../assets/menu.png");
 	coinDisplay.setTexture(coinDisplayT);
 	coinDisplay.setTextureRect(sf::IntRect(264, 76, 8, 8));
 	coinDisplay.setScale(3, 3);
@@ -212,19 +212,19 @@ void LevelEditor(string& MapName) {
 
 void MainMenu(sf::RenderWindow& window, int& Mode) {
 	sf::Texture Texture;
-	Texture.loadFromFile("assets/menu.png");
+	Texture.loadFromFile("../assets/menu.png");
 	sf::Sprite menu;
 	menu.setTexture(Texture);
 	menu.setPosition(sf::Vector2f(-264, (- 220 / 2 - (224 / 15))-4));
 
 	sf::Texture CurserT;
-	CurserT.loadFromFile("assets/menu_curser.png");
+	CurserT.loadFromFile("../assets/menu_curser.png");
 	sf::Sprite Curser;
 	Curser.setTexture(CurserT);
 	Curser.setOrigin(sf::Vector2f(4, 4));
 
 	sf::Texture MarioT;
-	MarioT.loadFromFile("assets/mario.png");
+	MarioT.loadFromFile("../assets/mario.png");
 	sf::Sprite Mario;
 	Mario.setTexture(MarioT);
 	Mario.setTextureRect(sf::IntRect(29 + (30 * 5), 30 * 0, 17, 17));
@@ -325,13 +325,13 @@ void MainMenu(sf::RenderWindow& window, int& Mode) {
 void startScreen(sf::RenderWindow& window, int& Lives, string MapName) {
 	sf::Clock clock;
 	sf::Texture backgroundT;
-	backgroundT.loadFromFile("assets/menu.png");
+	backgroundT.loadFromFile("../assets/menu.png");
 	sf::Sprite background;
 	background.setTexture(backgroundT);
 	background.setTextureRect(sf::IntRect(0, 381, 256, 230));
 
 	sf::Font LivesT;
-	LivesT.loadFromFile("assets/font.ttf");
+	LivesT.loadFromFile("../assets/font.ttf");
 	sf::Text LivesText;
 	LivesText.setScale(2, 2);
 	LivesText.setFont(LivesT);
@@ -376,13 +376,13 @@ void startScreen(sf::RenderWindow& window, int& Lives, string MapName) {
 void GameOver(sf::RenderWindow& window, string MapName, string Score, int& breakCode) {
 	sf::Clock Timer;
 	sf::SoundBuffer gameOverBuffer;
-	gameOverBuffer.loadFromFile("assets/audio/gameOver.wav");
+	gameOverBuffer.loadFromFile("../assets/audio/gameOver.wav");
 	sf::Sound gameOverSound;
 	gameOverSound.setBuffer(gameOverBuffer);
 	gameOverSound.play();
 
 	sf::Font font;
-	font.loadFromFile("assets/font.ttf");
+	font.loadFromFile("../assets/font.ttf");
 	sf::Text text;
 	text.setFont(font);
 
@@ -433,10 +433,10 @@ void setWindowProps(sf::RenderWindow& window) {
 int main() {
 	//initializing assets
 	sf::Texture Tileset;
-	Tileset.loadFromFile("assets/tileset.png");
+	Tileset.loadFromFile("../assets/tileset.png");
 
 	string MapName = "1-1";
-	LevelEditor(MapName);
+//	LevelEditor(MapName);
 
 	sf::RenderWindow window(sf::VideoMode(256, 224), "Super Mario Bros");
 	window.setFramerateLimit(60);
