@@ -27,6 +27,8 @@ Player::Player(sf::RenderWindow& window, string SpriteSheet, int num) {
 	jumpSound.setBuffer(jumpBuffer);
 	deathBuffer.loadFromFile("../assets/audio/death.wav");
 	DeathSound.setBuffer(deathBuffer);
+
+    dead = false;
 }
 
 float interpolate(float from, float to, float time) {
